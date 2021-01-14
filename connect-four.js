@@ -6,9 +6,9 @@ let gameName = document.getElementById('game-name');
 
 function updateUI() {
     if (game === undefined) {
-        board.className = 'is-invisible';
+        board.classList.add('is-invisible');
     } else {
-        board.removeAttribute('class');
+        board.classList.remove('is-invisible');
         gameName.innerHTML = game.getName();
     }
 }
