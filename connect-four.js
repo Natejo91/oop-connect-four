@@ -28,13 +28,15 @@ window.addEventListener('DOMContentLoaded', () => {
     let newGameBtn = document.getElementById('new-game');
     let formName = document.getElementById('form-holder');
 
-    formName.addEventListener('keyup', () => {
+    formName.addEventListener('keyup', () => {                      //if both are empty, disable button
         if (p1Name.value.length > 0 && p2Name.value.length > 0) { // checking against undefined didnt work?
             newGameBtn.removeAttribute('disabled');   //might have to check
         } else {
             newGameBtn.setAttribute('disabled', 'true');
         }
     })
+
+
     newGameBtn.addEventListener('click', event => {
         event.preventDefault();
         game = new Game(p1Name.value, p2Name.value); // make an instance of the Game;
