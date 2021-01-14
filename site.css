@@ -83,13 +83,14 @@ main {
   margin: 5px;
   width: 65px;
   transition: background-color ease-in-out .25s;
+  
 }
 
 .is-invisible {
   visibility: hidden;
 }
 
-.token {
+ .token {
   box-sizing: border-box;
   border-radius: 65px;
   height: 65px;
