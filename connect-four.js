@@ -22,6 +22,8 @@ window.addEventListener('DOMContentLoaded', () => {
     formName.addEventListener('keyup', () => {
         if (p1Name.value.length > 0 && p2Name.value.length > 0) { // checking against undefined didnt work?
             newGameBtn.removeAttribute('disabled');   //might have to check
+        } else {
+            newGameBtn.setAttribute("disabled", 'true')
         }
     })
     newGameBtn.addEventListener('click', event => {
