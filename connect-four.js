@@ -11,24 +11,24 @@ function updateUI() {
     } else {
         board.classList.remove('is-invisible');
         gameName.innerHTML = game.getName();
-        // for (let rowIndex = 0; rowIndex <= 5; rowIndex++) {
-        //     for (let columnIndex = 0; columnIndex <= 6; columnIndex++) {
-        //         const square = document.querySelector(`#square-${rowIndex}-${columnIndex}`);
-        //         square.innerHTML = '';
-        //         const playerNumber = game.getTokenAt(rowIndex, columnIndex);
-        //         if (playerNumber === 1) {
-        //             let div = document.createElement('div');
-        //             div.classList.add('token');
-        //             div.classList.add('red');
-        //             square.appendChild(div);
-        //         } else if (playerNumber === 2) {
-        //             let div = document.createElement('div');
-        //             div.classList.add('token');
-        //             div.classList.add('black');
-        //             square.appendChild(div);
-        //         }
-        //     }
-        // }
+        for (let rowIndex = 0; rowIndex <= 5; rowIndex++) {
+            for (let columnIndex = 0; columnIndex <= 6; columnIndex++) {
+                const square = document.querySelector(`#square-${rowIndex}-${columnIndex}`);
+                square.innerHTML = '';
+                const playerNumber = game.getTokenAt(rowIndex, columnIndex);
+                if (playerNumber === 1) {
+                    let div = document.createElement('div');
+                    div.classList.add('token');
+                    div.classList.add('red');
+                    square.appendChild(div);
+                } else if (playerNumber === 2) {
+                    let div = document.createElement('div');
+                    div.classList.add('token');
+                    div.classList.add('black');
+                    square.appendChild(div);
+                }
+            }
+        }
         const currentPlayer = game.currentPlayer;
         if (currentPlayer === 1) {
             clickTargets.classList.add('red');
@@ -68,13 +68,13 @@ window.addEventListener('DOMContentLoaded', () => {
 
 
     clickTargets.addEventListener('click', event => {
+
         const targetId = event.target.id;
         if (!targetId.startsWith('column-')) return;
-
         const columnIndex = Number.parseInt(targetId[targetId.length - 1]);//added new
+
         game.playInColumn(columnIndex);
         updateUI();
-        console.log('hello');
     });
 
 })
