@@ -3,18 +3,18 @@
 class Column {
     constructor(name) {
         //needs to be filled
-        this.column = [];
-        this.name = name;
+        this.tokens = [null, null, null, null, null, null];
     }
-    add(playerNum) {
-        this.column.push(playerNum);
-
-    }
-    getTokenAt(row) {
-        if (column === []) {
-            return null;
+    add(playerNumber) {
+        for (let index = 5; index >= 0; index -= 1) {
+            if (this.tokens[index] === null) {
+                this.tokens[index] = playerNumber;
+                break;
+            }
         }
-        return this.column[row];
+    }
+    getTokenAt(rowIndex) {
+        return this.tokens[rowIndex];
     }
 }
 
