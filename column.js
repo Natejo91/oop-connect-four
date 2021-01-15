@@ -13,6 +13,14 @@ class Column {
     getTokenAt(rowIndex) {
         return this.tokens[rowIndex];
     }
+    isFull() {
+        if (this.tokens[0] === null) {
+            return false;
+        } else {
+            return true;
+        }
+    }
+    
 }
 
 export default Column;

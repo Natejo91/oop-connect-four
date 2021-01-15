@@ -24,6 +24,11 @@ class Game {
         return this.columns[columnIndex].getTokenAt(rowIndex);
     }
 
+    isColumnFull(columnIndex) {
+        return this.columns[columnIndex].isFull();
+
+    }
+
     playInColumn(columnIndex) {
         this.columns[columnIndex].add(this.currentPlayer);
 

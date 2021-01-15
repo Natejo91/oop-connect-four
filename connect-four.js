@@ -11,6 +11,20 @@ function updateUI() {
     } else {
         board.classList.remove('is-invisible');
         gameName.innerHTML = game.getName();
+
+        for (let i = 0; i <= 6; i++) {
+            const columnId = `column-${i}`;
+            const column = document.getElementById(columnId);
+            const icf = game.isColumnFull(i);
+
+            if (icf) {
+                column.classList.add('full');
+            } else {
+                column.classList.remove('full');
+            }
+        }
+
+
         for (let rowIndex = 0; rowIndex <= 5; rowIndex++) {
             for (let columnIndex = 0; columnIndex <= 6; columnIndex++) {
                 const square = document.querySelector(`#square-${rowIndex}-${columnIndex}`);
@@ -29,6 +43,10 @@ function updateUI() {
                 }
             }
         }
+
+
+
+
         const currentPlayer = game.currentPlayer;
         if (currentPlayer === 1) {
             clickTargets.classList.add('red');
