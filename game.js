@@ -7,20 +7,24 @@ class Game {
         this.p2 = p2;
         this.currentPlayer = 1;
         this.columns = [
-            new Column('column-0'),
-            new Column("column-1"),
-            new Column("column-2"),
-            new Column("column-3"),
-            new Column("column-4"),
-            new Column("column-5"),
-            new Column("column-6")
+            new Column(),
+            new Column(),
+            new Column(),
+            new Column(),
+            new Column(),
+            new Column(),
+            new Column(),
         ];
     }
     getName() {
         return `${this.p1} vs. ${this.p2}`;
     }
 
-    playInColumn (columnIndex) {
+    getTokenAt(rowIndex, columnIndex) {
+        return this.columns[columnIndex].getTokenAt(rowIndex);
+    }
+
+    playInColumn(columnIndex) {
         this.columns[columnIndex].add(this.currentPlayer);
 
         if (this.currentPlayer === 1) {
@@ -29,10 +33,7 @@ class Game {
             this.currentPlayer = 1;
         }
     }
-    getTokenAt(rowIndex, colIndex) {
-        let cColumn = this.columns[colIndex];
-        return cColumn.getTokenAt(rowIndex);
-    }
+
 }
 
 export default Game;

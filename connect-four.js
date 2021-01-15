@@ -34,7 +34,7 @@ window.addEventListener('DOMContentLoaded', () => {
         } else {
             newGameBtn.setAttribute('disabled', 'true');
         }
-    })
+    });
 
 
     newGameBtn.addEventListener('click', event => {
@@ -44,15 +44,18 @@ window.addEventListener('DOMContentLoaded', () => {
         p2Name.value = '';
         newGameBtn.setAttribute('disabled', 'true');
         updateUI();
-    })
+    });
 
 
 
     clickTargets.addEventListener('click', event => {
-
-        game.playInColumn(event.target.id);
+        const targetId = event.target.id;
+        if (!targetId.startsWith('column-')) { // added new
+            return;
+        }
+        const columnIndex = Number.parseInt(targetId[targetId.length - 1]);//added new
+        game.playInColumn(columnIndex);
         updateUI();
-
-    })
+    });
 
 })

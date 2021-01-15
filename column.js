@@ -1,5 +1,3 @@
-
-
 class Column {
     constructor(name) {
         //needs to be filled
@@ -18,4 +16,4 @@ class Column {
     }
 }
 
-export default Column
+export default Column;
