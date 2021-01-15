@@ -15,8 +15,20 @@ class Game {
             new Column(),
             new Column(),
         ];
+        this.winnerNumber = 0;
     }
+
+    checkForTie() {
+
+        if (this.columns.every(x => x.isFull())) {
+            this.winnerNumber = 3;
+        }
+    }
+
     getName() {
+        if (this.winnerNumber === 3) {
+            return `${this.p1} ties with ${this.p2}!`;
+        }
         return `${this.p1} vs. ${this.p2}`;
     }
 
@@ -31,6 +43,7 @@ class Game {
 
     playInColumn(columnIndex) {
         this.columns[columnIndex].add(this.currentPlayer);
+        this.checkForTie();
 
         if (this.currentPlayer === 1) {
             this.currentPlayer = 2;
