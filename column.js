@@ -1,10 +1,10 @@
 
 
 class Column {
-    constructor(num) {
+    constructor(name) {
         //needs to be filled
         this.column = [];
-        this.num = num;
+        this.name = name;
     }
     add(playerNum) {
         this.column.push(playerNum);
