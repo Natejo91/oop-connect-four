@@ -1,6 +1,5 @@
 class Column {
-    constructor(name) {
-        //needs to be filled
+    constructor() {
         this.tokens = [null, null, null, null, null, null];
     }
     add(playerNumber) {
